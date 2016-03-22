@@ -74,7 +74,7 @@
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oeL-J6-RNR" customClass="MaterialTextField" customModule="FGStudios_Showcase" customModuleProvider="target">
                                         <rect key="frame" x="8" y="97" width="544" height="32"/>
@@ -115,7 +115,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onEmailBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oCN-bm-rTM"/>
+                                            <action selector="onEmailBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pJK-ty-Vio"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -161,32 +161,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="txtEmail" destination="oeL-J6-RNR" id="4pf-rh-0z4"/>
-                        <outlet property="txtPassword" destination="k1G-Ds-nih" id="gGu-CM-m41"/>
-                        <segue destination="yOs-Mk-hMV" kind="show" identifier="loggedIn" animates="NO" id="zwG-Nf-Cg3"/>
+                        <outlet property="txtEmail" destination="oeL-J6-RNR" id="Hgo-Oj-K4d"/>
+                        <outlet property="txtPassword" destination="k1G-Ds-nih" id="g35-5B-G4Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="643"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="cvg-7v-ek1">
-            <objects>
-                <viewController id="yOs-Mk-hMV" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7LY-Rp-Lai"/>
-                        <viewControllerLayoutGuide type="bottom" id="fH9-cZ-vlb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xRZ-BE-djI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nj0-6J-Kwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1201" y="643"/>
+            <point key="canvasLocation" x="821" y="611"/>
         </scene>
     </scenes>
     <resources>
