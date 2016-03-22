@@ -60,7 +60,26 @@ class ViewController: UIViewController {
     
     @IBAction func onEmailBtnPressed(sender: UIButton!) {
         if let email = txtEmail.text where email != "", let pwd = txtPassword.text where pwd != "" {
-            
+            DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: { error, authData in
+                if error != nil {
+                    if error.code == STATUS_ACCOUNT_NONEXIST {
+                        DataService.ds.REF_BASE.createUser(email, password: pwd, withValueCompletionBlock: { error, result in
+                            if error != nil {
+                                self.showErrorAlert("Could not create account", msg: "There was a problem creating the account.  Please try again.")
+                            } else {
+                                NSUserDefaults.standardUserDefaults().setValue(result[KEY_UID], forKey: KEY_UID)
+                                DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: nil)
+                                self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                            }
+                        })
+                    } else if error.code == STATUS_EMAIL_INVALID {
+                        self.showErrorAlert("Invalid Email", msg: "Your email address was invalid.  Please try again.")
+                    }
+                } else {
+                    NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: KEY_UID)
+                    self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                }
+            })
         } else {
             showErrorAlert("Empty fields", msg: "Please ensure you enter an email and password.")
         }
