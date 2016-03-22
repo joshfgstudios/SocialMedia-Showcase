@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		039627661CA12CE300224643 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039627651CA12CE300224643 /* DataService.swift */; };
 		03AF67B71CA0FA3600952F47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF67B61CA0FA3600952F47 /* AppDelegate.swift */; };
 		03AF67B91CA0FA3600952F47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF67B81CA0FA3600952F47 /* ViewController.swift */; };
 		03AF67BC1CA0FA3600952F47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03AF67BA1CA0FA3600952F47 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		039627651CA12CE300224643 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		03AF67B31CA0FA3600952F47 /* FGStudios Showcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FGStudios Showcase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03AF67B61CA0FA3600952F47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03AF67B81CA0FA3600952F47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		039627641CA12CD800224643 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				039627651CA12CE300224643 /* DataService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		03AF67AA1CA0FA3600952F47 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 		03AF67B51CA0FA3600952F47 /* FGStudios Showcase */ = {
 			isa = PBXGroup;
 			children = (
+				039627641CA12CD800224643 /* Services */,
 				03AF67D61CA0FE2800952F47 /* Util */,
 				03AF67CB1CA0FA6E00952F47 /* Resources */,
 				03AF67CA1CA0FA6800952F47 /* Model */,
@@ -278,6 +289,7 @@
 				03AF67D51CA0FDDD00952F47 /* MaterialView.swift in Sources */,
 				03AF67B91CA0FA3600952F47 /* ViewController.swift in Sources */,
 				03AF67DC1CA10E0D00952F47 /* MaterialTextField.swift in Sources */,
+				039627661CA12CE300224643 /* DataService.swift in Sources */,
 				03AF67B71CA0FA3600952F47 /* AppDelegate.swift in Sources */,
 				03AF67D81CA0FE3300952F47 /* Constants.swift in Sources */,
 			);
