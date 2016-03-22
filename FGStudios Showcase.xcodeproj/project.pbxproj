@@ -12,6 +12,12 @@
 		03AF67BC1CA0FA3600952F47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03AF67BA1CA0FA3600952F47 /* Main.storyboard */; };
 		03AF67BE1CA0FA3600952F47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03AF67BD1CA0FA3600952F47 /* Assets.xcassets */; };
 		03AF67C11CA0FA3600952F47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03AF67BF1CA0FA3600952F47 /* LaunchScreen.storyboard */; };
+		03AF67D01CA0FA8600952F47 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03AF67CC1CA0FA8600952F47 /* NotoSans-Bold.ttf */; };
+		03AF67D11CA0FA8600952F47 /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03AF67CD1CA0FA8600952F47 /* NotoSans-BoldItalic.ttf */; };
+		03AF67D21CA0FA8600952F47 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03AF67CE1CA0FA8600952F47 /* NotoSans-Italic.ttf */; };
+		03AF67D31CA0FA8600952F47 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03AF67CF1CA0FA8600952F47 /* NotoSans-Regular.ttf */; };
+		03AF67D51CA0FDDD00952F47 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF67D41CA0FDDD00952F47 /* MaterialView.swift */; };
+		03AF67D81CA0FE3300952F47 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF67D71CA0FE3300952F47 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		03AF67BD1CA0FA3600952F47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03AF67C01CA0FA3600952F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03AF67C21CA0FA3600952F47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03AF67CC1CA0FA8600952F47 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		03AF67CD1CA0FA8600952F47 /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		03AF67CE1CA0FA8600952F47 /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
+		03AF67CF1CA0FA8600952F47 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		03AF67D41CA0FDDD00952F47 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		03AF67D71CA0FE3300952F47 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,11 @@
 		03AF67B51CA0FA3600952F47 /* FGStudios Showcase */ = {
 			isa = PBXGroup;
 			children = (
+				03AF67D61CA0FE2800952F47 /* Util */,
+				03AF67CB1CA0FA6E00952F47 /* Resources */,
+				03AF67CA1CA0FA6800952F47 /* Model */,
+				03AF67C91CA0FA6400952F47 /* View */,
+				03AF67C81CA0FA5F00952F47 /* Controller */,
 				03AF67B61CA0FA3600952F47 /* AppDelegate.swift */,
 				03AF67B81CA0FA3600952F47 /* ViewController.swift */,
 				03AF67BA1CA0FA3600952F47 /* Main.storyboard */,
@@ -62,6 +79,47 @@
 				03AF67C21CA0FA3600952F47 /* Info.plist */,
 			);
 			path = "FGStudios Showcase";
+			sourceTree = "<group>";
+		};
+		03AF67C81CA0FA5F00952F47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		03AF67C91CA0FA6400952F47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				03AF67D41CA0FDDD00952F47 /* MaterialView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		03AF67CA1CA0FA6800952F47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		03AF67CB1CA0FA6E00952F47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				03AF67CC1CA0FA8600952F47 /* NotoSans-Bold.ttf */,
+				03AF67CD1CA0FA8600952F47 /* NotoSans-BoldItalic.ttf */,
+				03AF67CE1CA0FA8600952F47 /* NotoSans-Italic.ttf */,
+				03AF67CF1CA0FA8600952F47 /* NotoSans-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		03AF67D61CA0FE2800952F47 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				03AF67D71CA0FE3300952F47 /* Constants.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +180,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03AF67D01CA0FA8600952F47 /* NotoSans-Bold.ttf in Resources */,
 				03AF67C11CA0FA3600952F47 /* LaunchScreen.storyboard in Resources */,
+				03AF67D11CA0FA8600952F47 /* NotoSans-BoldItalic.ttf in Resources */,
+				03AF67D21CA0FA8600952F47 /* NotoSans-Italic.ttf in Resources */,
 				03AF67BE1CA0FA3600952F47 /* Assets.xcassets in Resources */,
 				03AF67BC1CA0FA3600952F47 /* Main.storyboard in Resources */,
+				03AF67D31CA0FA8600952F47 /* NotoSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +197,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03AF67D51CA0FDDD00952F47 /* MaterialView.swift in Sources */,
 				03AF67B91CA0FA3600952F47 /* ViewController.swift in Sources */,
 				03AF67B71CA0FA3600952F47 /* AppDelegate.swift in Sources */,
+				03AF67D81CA0FE3300952F47 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +263,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -238,7 +302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -250,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "FGStudios Showcase/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foxgallerystudios.FGStudios-Showcase";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -261,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "FGStudios Showcase/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foxgallerystudios.FGStudios-Showcase";
 				PRODUCT_NAME = "$(TARGET_NAME)";
