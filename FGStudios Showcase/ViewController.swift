@@ -74,6 +74,8 @@ class ViewController: UIViewController {
                         })
                     } else if error.code == STATUS_EMAIL_INVALID {
                         self.showErrorAlert("Invalid Email", msg: "Your email address was invalid.  Please try again.")
+                    } else if error.code == STATUS_PASSWORD_INVALID {
+                        self.showErrorAlert("Invalid Password", msg: "Your password was incorrect.  Please try again.")
                     }
                 } else {
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: KEY_UID)
