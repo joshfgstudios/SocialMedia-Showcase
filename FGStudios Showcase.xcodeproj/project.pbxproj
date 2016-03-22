@@ -18,6 +18,7 @@
 		03AF67D31CA0FA8600952F47 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03AF67CF1CA0FA8600952F47 /* NotoSans-Regular.ttf */; };
 		03AF67D51CA0FDDD00952F47 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF67D41CA0FDDD00952F47 /* MaterialView.swift */; };
 		03AF67D81CA0FE3300952F47 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF67D71CA0FE3300952F47 /* Constants.swift */; };
+		03AF67DC1CA10E0D00952F47 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF67DB1CA10E0D00952F47 /* MaterialTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		03AF67CF1CA0FA8600952F47 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		03AF67D41CA0FDDD00952F47 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		03AF67D71CA0FE3300952F47 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		03AF67DB1CA10E0D00952F47 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +74,7 @@
 				03AF67C91CA0FA6400952F47 /* View */,
 				03AF67C81CA0FA5F00952F47 /* Controller */,
 				03AF67B61CA0FA3600952F47 /* AppDelegate.swift */,
-				03AF67B81CA0FA3600952F47 /* ViewController.swift */,
-				03AF67BA1CA0FA3600952F47 /* Main.storyboard */,
 				03AF67BD1CA0FA3600952F47 /* Assets.xcassets */,
-				03AF67BF1CA0FA3600952F47 /* LaunchScreen.storyboard */,
 				03AF67C21CA0FA3600952F47 /* Info.plist */,
 			);
 			path = "FGStudios Showcase";
@@ -84,6 +83,7 @@
 		03AF67C81CA0FA5F00952F47 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				03AF67B81CA0FA3600952F47 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -91,7 +91,10 @@
 		03AF67C91CA0FA6400952F47 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				03AF67BA1CA0FA3600952F47 /* Main.storyboard */,
+				03AF67BF1CA0FA3600952F47 /* LaunchScreen.storyboard */,
 				03AF67D41CA0FDDD00952F47 /* MaterialView.swift */,
+				03AF67DB1CA10E0D00952F47 /* MaterialTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			files = (
 				03AF67D51CA0FDDD00952F47 /* MaterialView.swift in Sources */,
 				03AF67B91CA0FA3600952F47 /* ViewController.swift in Sources */,
+				03AF67DC1CA10E0D00952F47 /* MaterialTextField.swift in Sources */,
 				03AF67B71CA0FA3600952F47 /* AppDelegate.swift in Sources */,
 				03AF67D81CA0FE3300952F47 /* Constants.swift in Sources */,
 			);
