@@ -241,7 +241,7 @@
                                                                     <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eWH-V4-ZKC">
+                                                                <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ash-fantastic-mr-fox-10762113-500-268" translatesAutoresizingMaskIntoConstraints="NO" id="eWH-V4-ZKC">
                                                                     <rect key="frame" x="0.0" y="94" width="528" height="108"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="108" id="2j7-cX-Ys5"/>
@@ -321,12 +321,17 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u1s-CI-bAW" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TM3-6f-MOo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="aYr-q9-oQQ">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="IIh-Py-Z9e" kind="relationship" relationship="rootViewController" id="Zov-9T-kXE"/>
                     </connections>
@@ -337,6 +342,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Ash-fantastic-mr-fox-10762113-500-268" width="500" height="268"/>
         <image name="fox_white_small" width="120" height="120"/>
         <image name="heart-empty" width="150" height="147"/>
         <image name="joshabove" width="1280" height="853"/>
