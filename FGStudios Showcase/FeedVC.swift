@@ -59,8 +59,14 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //For each post, create a cell
         let post = posts[indexPath.row]
-        print(post.postDescription)
-        return tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostCell
+        
+        //If there's a reusable cell, give it to us, otherwise create one
+        if let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as? PostCell {
+            cell.configureCell(post)
+            return cell
+        } else {
+            return PostCell()
+        }
     }
 
 

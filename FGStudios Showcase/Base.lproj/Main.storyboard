@@ -294,6 +294,8 @@
                                         <connections>
                                             <outlet property="imgProfile" destination="e73-Jt-mLj" id="9mF-mt-fRh"/>
                                             <outlet property="imgShowcase" destination="eWH-V4-ZKC" id="gtz-8B-Vql"/>
+                                            <outlet property="lblLikes" destination="QxJ-Qp-CpY" id="mHI-et-Hub"/>
+                                            <outlet property="txtViewDescription" destination="bYm-IJ-wdO" id="eJy-dS-SJS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
