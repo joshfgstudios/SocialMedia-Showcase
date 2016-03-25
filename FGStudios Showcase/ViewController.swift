@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     //Outlets
     @IBOutlet weak var txtEmail: UITextField!
@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        txtEmail.delegate = self
+        txtPassword.delegate = self
+        addDoneButtonToKeyboard(txtEmail)
+        addDoneButtonToKeyboard(txtPassword)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -33,6 +37,31 @@ class ViewController: UIViewController {
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    func showErrorAlert(title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func addDoneButtonToKeyboard(txtField: UITextField) {
+        let doneToolbar = UIToolbar(frame: CGRectMake(0, 0, 400, 35))
+        doneToolbar.barStyle = UIBarStyle.Default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: #selector(dismissKeyboard))
+        
+        var items = [AnyObject]()
+        items.append(flexSpace)
+        items.append(done)
+        doneToolbar.items = items as? [UIBarButtonItem]
+        
+        txtField.inputAccessoryView = doneToolbar
+    }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     //Actions
@@ -109,13 +138,6 @@ class ViewController: UIViewController {
         } else {
             showErrorAlert("Empty fields", msg: "Please ensure you enter an email and password.")
         }
-    }
-    
-    func showErrorAlert(title: String, msg: String) {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "Okay", style: .Default, handler: nil)
-        alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
     }
 
 

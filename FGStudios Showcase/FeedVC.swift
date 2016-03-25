@@ -170,6 +170,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                                     if let imgLink = links["image_link"] as? String {
                                         print("LINK: \(imgLink)")
                                         self.postToFirebase(imgLink)
+                                        self.dismissKeyboard()
                                     }
                                 }
                             }
@@ -179,6 +180,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 }
             } else {
                 self.postToFirebase(nil)
+                dismissKeyboard()
             }
         }
     }
