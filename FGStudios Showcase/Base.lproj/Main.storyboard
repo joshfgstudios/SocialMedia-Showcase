@@ -198,11 +198,15 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="3cX-Bz-KnA">
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="3cX-Bz-KnA">
                                         <rect key="frame" x="462" y="11" width="32" height="32"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3cX-Bz-KnA" secondAttribute="height" multiplier="1:1" id="Hhb-xD-wL6"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="7q5-hf-b0o" appends="YES" id="D1K-vf-7PM"/>
+                                        </connections>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lX3-52-6x6">
                                         <rect key="frame" x="502" y="11" width="50" height="32"/>
@@ -214,6 +218,9 @@
                                         <state key="normal" title="Post">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="makePost:" destination="IIh-Py-Z9e" eventType="touchUpInside" id="2lD-sh-Oiq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -369,10 +376,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="gUN-iS-B1C"/>
                     <connections>
+                        <outlet property="imgCamera" destination="3cX-Bz-KnA" id="1Ct-rF-1bp"/>
                         <outlet property="tableView" destination="6am-oK-I1I" id="1Dd-Pu-l4W"/>
+                        <outlet property="txtPost" destination="6dn-GU-jCM" id="fVq-OX-A9D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obg-tA-ZFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7q5-hf-b0o">
+                    <connections>
+                        <action selector="selectImage:" destination="IIh-Py-Z9e" id="rJk-py-upT"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2303" y="611"/>
         </scene>
