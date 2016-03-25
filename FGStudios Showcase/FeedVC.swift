@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //Outlets
     @IBOutlet weak var tableView: UITableView!
+    
+    //Properties
+    var posts = [Post]()
 
+    //Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +25,21 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
         DataService.ds.REF_POSTS.observeEventType(.Value, withBlock: { snapshot in
-            print(snapshot.value)
+                        
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                //Empty out the array as we're going to replace with current data
+                self.posts = []
+                //Iterate through each post
+                for snap in snapshots {
+                    //Append the current post in the loop to the posts array
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let post = Post(postKey: key, dictionary: postDict)
+                        self.posts.append(post)
+                    }
+                }
+            }
+            
             self.tableView.reloadData()
         })
     }
@@ -33,10 +53,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //For each post, create a cell
+        let post = posts[indexPath.row]
+        print(post.postDescription)
         return tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostCell
     }
 

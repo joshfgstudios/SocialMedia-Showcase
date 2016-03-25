@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03722FC11CA4D198000ACAD4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03722FC01CA4D198000ACAD4 /* Post.swift */; };
 		039627661CA12CE300224643 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039627651CA12CE300224643 /* DataService.swift */; };
 		03AF67B71CA0FA3600952F47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF67B61CA0FA3600952F47 /* AppDelegate.swift */; };
 		03AF67B91CA0FA3600952F47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF67B81CA0FA3600952F47 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03722FC01CA4D198000ACAD4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		039627651CA12CE300224643 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		03AF67B31CA0FA3600952F47 /* FGStudios Showcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FGStudios Showcase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03AF67B61CA0FA3600952F47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		03AF67CA1CA0FA6800952F47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				03722FC01CA4D198000ACAD4 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				03AF67DC1CA10E0D00952F47 /* MaterialTextField.swift in Sources */,
 				039627661CA12CE300224643 /* DataService.swift in Sources */,
 				03AF67B71CA0FA3600952F47 /* AppDelegate.swift in Sources */,
+				03722FC11CA4D198000ACAD4 /* Post.swift in Sources */,
 				03AF67D81CA0FE3300952F47 /* Constants.swift in Sources */,
 				03FB93681CA3FEBD007DE350 /* PostCell.swift in Sources */,
 			);
