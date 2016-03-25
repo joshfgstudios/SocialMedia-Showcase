@@ -16,6 +16,7 @@
             <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
+            <string>NotoSans</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -187,12 +188,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wax-k6-PbM" customClass="MaterialView" customModule="FGStudios_Showcase" customModuleProvider="target">
+                                <rect key="frame" x="20" y="72" width="560" height="54"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Talk about your app..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6dn-GU-jCM" customClass="MaterialTextField" customModule="FGStudios_Showcase" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="11" width="446" height="32"/>
+                                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="3cX-Bz-KnA">
+                                        <rect key="frame" x="462" y="11" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="3cX-Bz-KnA" secondAttribute="height" multiplier="1:1" id="Hhb-xD-wL6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lX3-52-6x6">
+                                        <rect key="frame" x="502" y="11" width="50" height="32"/>
+                                        <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="RuZ-N6-dya"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="15"/>
+                                        <state key="normal" title="Post">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="3cX-Bz-KnA" firstAttribute="centerY" secondItem="wax-k6-PbM" secondAttribute="centerY" id="1h9-5p-S77"/>
+                                    <constraint firstItem="lX3-52-6x6" firstAttribute="height" secondItem="wax-k6-PbM" secondAttribute="height" multiplier="0.6" id="2MB-6U-cAa"/>
+                                    <constraint firstItem="3cX-Bz-KnA" firstAttribute="height" secondItem="lX3-52-6x6" secondAttribute="height" id="9Qm-xc-I1l"/>
+                                    <constraint firstItem="6dn-GU-jCM" firstAttribute="centerY" secondItem="wax-k6-PbM" secondAttribute="centerY" id="AGL-Gp-t6r"/>
+                                    <constraint firstItem="6dn-GU-jCM" firstAttribute="height" secondItem="wax-k6-PbM" secondAttribute="height" id="IQb-GF-CpT"/>
+                                    <constraint firstItem="6dn-GU-jCM" firstAttribute="height" secondItem="lX3-52-6x6" secondAttribute="height" id="X5c-9J-y96"/>
+                                    <constraint firstItem="3cX-Bz-KnA" firstAttribute="leading" secondItem="6dn-GU-jCM" secondAttribute="trailing" constant="8" id="fnp-5C-58i"/>
+                                    <constraint firstItem="lX3-52-6x6" firstAttribute="centerY" secondItem="wax-k6-PbM" secondAttribute="centerY" id="gqb-fV-m7s"/>
+                                    <constraint firstItem="lX3-52-6x6" firstAttribute="leading" secondItem="3cX-Bz-KnA" secondAttribute="trailing" constant="8" id="mUC-NO-9p2"/>
+                                    <constraint firstItem="6dn-GU-jCM" firstAttribute="leading" secondItem="wax-k6-PbM" secondAttribute="leading" constant="8" id="mbs-5g-l45"/>
+                                    <constraint firstAttribute="trailing" secondItem="lX3-52-6x6" secondAttribute="trailing" constant="8" id="r55-Jx-HUB"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="IQb-GF-CpT"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="391" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6am-oK-I1I">
-                                <rect key="frame" x="20" y="64" width="560" height="536"/>
+                                <rect key="frame" x="20" y="134" width="560" height="466"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" id="xdQ-RB-LX3" customClass="PostCell" customModule="FGStudios_Showcase" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="560" height="391"/>
+                                        <rect key="frame" x="0.0" y="28" width="560" height="391"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xdQ-RB-LX3" id="O4b-Cz-KaI">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="391"/>
@@ -303,10 +352,20 @@
                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="szH-yL-j7N" firstAttribute="top" secondItem="6am-oK-I1I" secondAttribute="bottom" id="6f0-eE-Nmm"/>
+                            <constraint firstItem="wax-k6-PbM" firstAttribute="leading" secondItem="pum-b2-lim" secondAttribute="leadingMargin" id="A7p-1W-XQZ"/>
+                            <constraint firstItem="wax-k6-PbM" firstAttribute="trailing" secondItem="pum-b2-lim" secondAttribute="trailingMargin" id="C7z-es-Ffg"/>
                             <constraint firstItem="6am-oK-I1I" firstAttribute="trailing" secondItem="pum-b2-lim" secondAttribute="trailingMargin" id="CGk-hM-bxq"/>
                             <constraint firstItem="6am-oK-I1I" firstAttribute="leading" secondItem="pum-b2-lim" secondAttribute="leadingMargin" id="KPw-Xn-NtH"/>
+                            <constraint firstItem="wax-k6-PbM" firstAttribute="top" secondItem="vMS-zi-1wc" secondAttribute="bottom" constant="8" id="Ueb-pC-nC8"/>
+                            <constraint firstItem="6am-oK-I1I" firstAttribute="top" secondItem="wax-k6-PbM" secondAttribute="bottom" constant="8" id="eDU-HF-hBD"/>
+                            <constraint firstItem="wax-k6-PbM" firstAttribute="height" secondItem="pum-b2-lim" secondAttribute="height" multiplier="0.09" id="fts-px-wEP"/>
                             <constraint firstItem="6am-oK-I1I" firstAttribute="top" secondItem="vMS-zi-1wc" secondAttribute="bottom" id="sbu-xn-Q5d"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="sbu-xn-Q5d"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="gUN-iS-B1C"/>
                     <connections>
@@ -343,6 +402,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="120" height="120"/>
         <image name="fox_white_small" width="120" height="120"/>
         <image name="heart-empty" width="150" height="147"/>
         <image name="joshabove" width="1280" height="853"/>
