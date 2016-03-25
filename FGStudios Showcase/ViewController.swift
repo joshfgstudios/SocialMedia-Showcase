@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        //Check if we alread have the user's login details and skip sign in
+        //Check if we already have the user's login details and skip sign in
         if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
             self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
         }
@@ -42,14 +42,15 @@ class ViewController: UIViewController {
 
         facebookLogin.logInWithReadPermissions(["email"], fromViewController: self) { (facebookResult: FBSDKLoginManagerLoginResult!, facebookError: NSError!) in
             if facebookError != nil || facebookResult.token == nil {
-                print("Facebook login failed.  Error \(facebookError)")
+                self.showErrorAlert("Login failed", msg: "Facebook login failed.  Error \(facebookError)")
             } else {
+                //Successfull obtained Facebook permission
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                print("Successfully obtained Facebook permission!  \(accessToken)")
              
+                //Firebase authentication
                 DataService.ds.REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { error, authData in
                     if error != nil {
-                        print("Login failed. \(error)")
+                        self.showErrorAlert("Login failed", msg: "There was an authentication problem and you have not been logged in.")
                     } else {
                         print("Logged in! \(authData)")
                         
@@ -71,10 +72,10 @@ class ViewController: UIViewController {
         if let email = txtEmail.text where email != "", let pwd = txtPassword.text where pwd != "" {
             
             DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: { error, authData in
-                
                 if error != nil {
-                    //The user doesn't exist, create one
+                    //Check what the problem is
                     if error.code == STATUS_ACCOUNT_NONEXIST {
+                        //The user doesn't exist, create one
                         DataService.ds.REF_BASE.createUser(email, password: pwd, withValueCompletionBlock: { error, result in
                             
                             if error != nil {
@@ -91,15 +92,14 @@ class ViewController: UIViewController {
                                 self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                             }
                         })
-                    //Email was invalid
                     } else if error.code == STATUS_EMAIL_INVALID {
+                        //Email was invalid
                         self.showErrorAlert("Invalid Email", msg: "Your email address was invalid.  Please try again.")
-                    //Password was wrong
                     } else if error.code == STATUS_PASSWORD_INVALID {
+                        //Password was wrong
                         self.showErrorAlert("Invalid Password", msg: "Your password was incorrect.  Please try again.")
                     }
-                //No problems, login
-                } else {
+                } else {  //No problems, login
                     //Assign the UID so we can skip login next time app opened
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: KEY_UID)
                     self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
