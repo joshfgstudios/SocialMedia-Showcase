@@ -49,6 +49,7 @@ class PostCell: UITableViewCell {
                     }
                 })
             }
+            self.imgShowcase.hidden = false
         } else {
             self.imgShowcase.hidden = true
         }
