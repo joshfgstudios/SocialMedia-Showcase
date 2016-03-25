@@ -16,6 +16,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Properties
     var posts = [Post]()
+    static var imageCache = NSCache()
 
     //Functions
     override func viewDidLoad() {
@@ -23,6 +24,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.estimatedRowHeight = 350
         
         DataService.ds.REF_POSTS.observeEventType(.Value, withBlock: { snapshot in
                         
@@ -62,10 +65,30 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //If there's a reusable cell, give it to us, otherwise create one
         if let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as? PostCell {
-            cell.configureCell(post)
+            //if the new cell being reused has an existing request, cancel it
+            cell.request?.cancel()
+            
+            var img: UIImage?
+            
+            if let url = post.imageURL {
+                img = FeedVC.imageCache.objectForKey(url) as? UIImage
+            }
+            
+            cell.configureCell(post, image: img)
+            
             return cell
         } else {
             return PostCell()
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let post = posts[indexPath.row]
+        
+        if post.imageURL == nil {
+            return tableView.estimatedRowHeight / 2
+        } else {
+            return tableView.estimatedRowHeight
         }
     }
 
