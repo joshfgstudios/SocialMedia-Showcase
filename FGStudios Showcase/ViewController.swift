@@ -80,9 +80,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 DataService.ds.REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { error, authData in
                     if error != nil {
                         self.showErrorAlert("Login failed", msg: "There was an authentication problem and you have not been logged in.")
-                    } else {
-                        print("Logged in! \(authData)")
-                        
+                    } else {                      
                         //Create the user on Firebase
                         let user = ["provider": authData.provider!, "blah": "test"]
                         DataService.ds.createFirebaseUser(authData.uid, user: user)

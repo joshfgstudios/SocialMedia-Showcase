@@ -41,18 +41,21 @@ class PostCell: UITableViewCell {
             if image != nil {
                 self.imgShowcase.image = image
             } else {  //no cached image, download one
+                self.imgShowcase.hidden = true
                 request = Alamofire.request(.GET, post.imageURL!).validate(contentType: ["image/*"]).response(completionHandler: { request, response, data, err in
                     if err == nil {
                         let image = UIImage(data: data!)!
                         self.imgShowcase.image = image
                         FeedVC.imageCache.setObject(image, forKey: self.post.imageURL!) //store it in the cache once downloaded
+                        self.imgShowcase.hidden = false
                     }
                 })
             }
-            self.imgShowcase.hidden = false
         } else {
             self.imgShowcase.hidden = true
         }
+        
+        
     }
 
 }
