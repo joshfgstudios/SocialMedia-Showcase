@@ -84,7 +84,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 img = FeedVC.imageCache.objectForKey(url) as? UIImage
             }
             
-            cell.configureCell(post, image: img)
+            cell.configureCell(post, image: img, completed: { 
+                cell.imgShowcase.hidden = false
+            })
             
             return cell
         } else {

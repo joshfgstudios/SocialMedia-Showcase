@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 let URL_BASE = "https://fgstudios-showcase.firebaseio.com"
+typealias DownloadComplete = () -> ()
 
 class DataService {
     static let ds = DataService()
@@ -28,6 +29,12 @@ class DataService {
     
     var REF_USERS: Firebase {
         return _REF_USERS
+    }
+    
+    var REF_USER_CURRENT: Firebase {
+        let uid = NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) as! String
+        let user = Firebase(url: "\(URL_BASE)").childByAppendingPath("users").childByAppendingPath(uid)
+        return user
     }
     
     func createFirebaseUser(uid: String, user: Dictionary<String, String>) {

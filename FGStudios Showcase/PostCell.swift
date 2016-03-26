@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Firebase
 
 class PostCell: UITableViewCell {
     
@@ -15,13 +16,19 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var imgShowcase: UIImageView!
     @IBOutlet weak var txtViewDescription: UITextView!
     @IBOutlet weak var lblLikes: UILabel!
+    @IBOutlet weak var imgLike: UIImageView!
 
     var post: Post!
     var request: Request?
+    var likeRef: Firebase!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
+        tapGesture.numberOfTapsRequired = 1
+        imgLike.addGestureRecognizer(tapGesture)
+        imgLike.userInteractionEnabled = true
     }
     
     override func drawRect(rect: CGRect) {
@@ -30,8 +37,10 @@ class PostCell: UITableViewCell {
         imgShowcase.clipsToBounds = true
     }
 
-    func configureCell(post: Post, image: UIImage?) {
+    func configureCell(post: Post, image: UIImage?, completed: DownloadComplete) {
         self.post = post
+        
+        likeRef = DataService.ds.REF_USER_CURRENT.childByAppendingPath("likes").childByAppendingPath(post.postKey)
         
         self.txtViewDescription.text = post.postDescription
         self.lblLikes.text = "\(post.likes)"
@@ -40,6 +49,7 @@ class PostCell: UITableViewCell {
             //Check for cached image
             if image != nil {
                 self.imgShowcase.image = image
+                self.imgShowcase.hidden = false
             } else {  //no cached image, download one
                 self.imgShowcase.hidden = true
                 request = Alamofire.request(.GET, post.imageURL!).validate(contentType: ["image/*"]).response(completionHandler: { request, response, data, err in
@@ -47,15 +57,42 @@ class PostCell: UITableViewCell {
                         let image = UIImage(data: data!)!
                         self.imgShowcase.image = image
                         FeedVC.imageCache.setObject(image, forKey: self.post.imageURL!) //store it in the cache once downloaded
-                        self.imgShowcase.hidden = false
                     }
                 })
+                completed()
             }
         } else {
             self.imgShowcase.hidden = true
         }
-        
-        
+
+        likeRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if (snapshot.value as? NSNull) != nil {
+                //We haven't liked this specific post
+                self.imgLike.image = UIImage(named: "heart-empty")
+            } else {
+                self.imgLike.image =  UIImage(named: "heart-full")
+            }
+        })
+    }
+    
+    func allowLikes() {
+        imgLike.userInteractionEnabled = true
+    }
+    
+    func likeTapped(sender: UITapGestureRecognizer) {
+        imgLike.userInteractionEnabled = false
+        likeRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if (snapshot.value as? NSNull) != nil {
+                self.imgLike.image =  UIImage(named: "heart-full")
+                self.post.adjustLikes(true)
+                self.likeRef.setValue(true)
+            } else {
+                self.imgLike.image = UIImage(named: "heart-empty")
+                self.post.adjustLikes(false)
+                self.likeRef.removeValue()
+            }
+        })
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(allowLikes), userInfo: nil, repeats: false)
     }
 
 }
