@@ -389,7 +389,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2303" y="611"/>
+            <point key="canvasLocation" x="1463" y="1373"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BzQ-Yn-DBp">
@@ -413,7 +413,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TyF-o7-QzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1491" y="611"/>
+            <point key="canvasLocation" x="1463" y="611"/>
         </scene>
     </scenes>
     <resources>

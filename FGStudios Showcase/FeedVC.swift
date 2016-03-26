@@ -20,6 +20,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     //Properties
     var posts = [Post]()
+    var likeRef: Firebase!
     var imagePicker: UIImagePickerController!
     
     static var imageCache = NSCache()
@@ -43,7 +44,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 //Empty out the array as we're going to replace with current data
                 self.posts = []
                 //Iterate through each post
-                for snap in snapshots {
+                for snap in snapshots.reverse() {
                     //Append the current post in the loop to the posts array
                     if let postDict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
@@ -79,12 +80,12 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             cell.request?.cancel()
             
             var img: UIImage?
-            
+
             if let url = post.imageURL {
                 img = FeedVC.imageCache.objectForKey(url) as? UIImage
             }
-            
-            cell.configureCell(post, image: img, completed: { 
+
+            cell.configureCell(post, image: img, completed: {
                 cell.imgShowcase.hidden = false
             })
             

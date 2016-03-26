@@ -92,7 +92,7 @@ class PostCell: UITableViewCell {
                 self.likeRef.removeValue()
             }
         })
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(allowLikes), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(0.6, target: self, selector: #selector(allowLikes), userInfo: nil, repeats: false)
     }
 
 }
